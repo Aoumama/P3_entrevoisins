@@ -6,11 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".ui.neighbour_list.NeighbourDetail">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="186dp"
-        android:layout_height="84dp"
-        android:text="TestLaPage"
-        tools:layout_editor_absoluteX="121dp"
-        tools:layout_editor_absoluteY="323dp" />
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/profil"
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Caroline"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="40sp"
+            android:layout_marginStart="20dp"/>
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_arrow_left"
+            android:tint="@color/colorWhite"
+            android:layout_margin="20dp"/>
+
+
+
+
+
+    </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
