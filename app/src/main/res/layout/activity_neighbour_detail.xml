@@ -4,40 +4,204 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.neighbour_list.NeighbourDetail">
+    tools:context=".ui.neighbour_list.NeighbourDetailActivity"
+    android:background="@color/colorGrey">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="0dp"
-        android:layout_height="300dp"
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="290dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/profil"
-            android:scaleType="centerCrop"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/activity_neighbour_detail_profil"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profil" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Caroline"
-            android:layout_alignParentBottom="true"
+            android:id="@+id/activity_neighbour_detail_name_image"
+            android:layout_marginTop="210dp"
+            android:layout_marginStart="15dp"
+            android:textSize="35sp"
             android:textColor="@color/colorWhite"
-            android:textSize="40sp"
-            android:layout_marginStart="20dp"/>
+            android:text="Nom sur l'image"/>
 
         <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/ic_arrow_left"
+            android:id="@+id/activity_neighbour_detail_return"
             android:tint="@color/colorWhite"
-            android:layout_margin="20dp"/>
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="35dp"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="295dp"
+        android:layout_marginEnd="15dp"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardView">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/linerlayoutnom"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/activity_neighbour_detail_name"
+                android:layout_marginStart="5dp"
+                android:text="Nom"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorGrey"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="50dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_map_marker"
+                android:layout_margin="5dp"
+                android:tint="@color/colorRed"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/activity_neighbour_detail_address"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="5dp"
+                android:text="Adresse"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="85dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_phone"
+                android:layout_margin="5dp"
+                android:tint="@color/colorRed"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/activity_neighbour_detail_number"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="5dp"
+                android:text="Numéro de téléphone"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="120dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_web"
+                android:layout_margin="5dp"
+                android:tint="@color/colorRed"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adresse facebook"
+                android:id="@+id/activity_neighbour_detail_facebook"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="5dp"/>
+         </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="185dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardView2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="A propos de moi"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorGrey"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="50dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/activity_neighbour_detail_about"
+                android:text="Bla bla bla"
+                android:layout_margin="5dp"/>
+
+
+        </LinearLayout>
 
 
 
+    </android.support.v7.widget.CardView>
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/activity_neighbour_detail_favorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_star"
+        android:elevation="10dp"
+        app:backgroundTint="@color/colorWhite"
+        android:layout_marginTop="230dp"
+        android:layout_marginEnd="-5dp"
+        android:layout_marginBottom="184dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView3"
+        app:layout_constraintEnd_toEndOf="@+id/cardView2"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
+
+
