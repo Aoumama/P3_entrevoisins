@@ -23,7 +23,8 @@ public abstract class DummyNeighbourGenerator {
             new Neighbour(12, "Ludovic", "http://i.pravatar.cc/150?u=a042581f3e39026702d",  "1 allée gutemberg 93200 Saint-denis", "06.48.22.28.09", "www.facebook.fr/Ludovic", "Bonjour, Je sais pas quoi dire")
     );
 
-    static List<Neighbour> generateNeighbours() {
-        return new ArrayList<>(DUMMY_NEIGHBOURS);
+    static List<Neighbour> generateNeighbours() { return new ArrayList<>(DUMMY_NEIGHBOURS);
     }
+
+
 }

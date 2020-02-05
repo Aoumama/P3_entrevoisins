@@ -7,184 +7,178 @@
     tools:context=".ui.neighbour_list.NeighbourDetailActivity"
     android:background="@color/colorGrey">
 
-
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/activity_neighbour_detail_cardview_image"
         android:layout_width="match_parent"
         android:layout_height="290dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <ImageView
+            android:id="@+id/activity_neighbour_detail_profil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/activity_neighbour_detail_profil"
             android:scaleType="centerCrop"
             android:src="@drawable/profil" />
-
         <TextView
+            android:id="@+id/activity_neighbour_detail_name_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/activity_neighbour_detail_name_image"
             android:layout_marginTop="210dp"
             android:layout_marginStart="15dp"
             android:textSize="35sp"
             android:textColor="@color/colorWhite"
             android:text="Nom sur l'image"/>
-
         <ImageView
+            android:id="@+id/activity_neighbour_detail_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_arrow_left"
-            android:id="@+id/activity_neighbour_detail_return"
             android:tint="@color/colorWhite"
             android:layout_marginStart="15dp"
             android:layout_marginTop="35dp"/>
-
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/activity_neighbour_detail_cardview_name"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="295dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
+        app:cardCornerRadius="10dp"
         app:cardBackgroundColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardView">
-
-
+        app:layout_constraintTop_toBottomOf="@id/activity_neighbour_detail_cardview_image">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/linerlayoutnom"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-            <TextView
+            <LinearLayout
+                android:id="@+id/activity_neighbour_detail_linearlayout_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/activity_neighbour_detail_name"
-                android:layout_marginStart="5dp"
-                android:text="Nom"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="4dp"
-                android:layout_marginTop="4dp"
-                android:background="@color/colorGrey"/>
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/activity_neighbour_detail_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:text="Nom"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/colorGrey"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_map_marker"
+                    android:layout_margin="5dp"
+                    android:tint="@color/colorRed"/>
+                <TextView
+                    android:id="@+id/activity_neighbour_detail_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="5dp"
+                    android:text="Adresse"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_phone"
+                    android:layout_margin="5dp"
+                    android:tint="@color/colorRed"/>
+                <TextView
+                    android:id="@+id/activity_neighbour_detail_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="5dp"
+                    android:text="Numéro de téléphone"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_web"
+                    android:layout_margin="5dp"
+                    android:tint="@color/colorRed"/>
+                <TextView
+                    android:id="@+id/activity_neighbour_detail_facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adresse facebook"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="5dp"/>
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_marginTop="50dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_map_marker"
-                android:layout_margin="5dp"
-                android:tint="@color/colorRed"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/activity_neighbour_detail_address"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="5dp"
-                android:text="Adresse"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_marginTop="85dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_phone"
-                android:layout_margin="5dp"
-                android:tint="@color/colorRed"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/activity_neighbour_detail_number"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="5dp"
-                android:text="Numéro de téléphone"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_marginTop="120dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_web"
-                android:layout_margin="5dp"
-                android:tint="@color/colorRed"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Adresse facebook"
-                android:id="@+id/activity_neighbour_detail_facebook"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="5dp"/>
-         </LinearLayout>
-
     </android.support.v7.widget.CardView>
 
-
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView3"
+        android:id="@+id/activity_neighbour_detail_cardview_about"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_marginTop="185dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
         android:layout_marginStart="15dp"
+        app:cardCornerRadius="10dp"
         app:cardBackgroundColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardView2">
-
+        app:layout_constraintTop_toBottomOf="@id/activity_neighbour_detail_cardview_name">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="A propos de moi"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="4dp"
-                android:layout_marginTop="4dp"
-                android:background="@color/colorGrey"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="50dp">
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:text="A propos de moi"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/colorGrey"/>
+            </LinearLayout>
+
             <TextView
+                android:id="@+id/activity_neighbour_detail_about"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/activity_neighbour_detail_about"
                 android:text="Bla bla bla"
-                android:layout_margin="5dp"/>
-
-
+                android:layout_margin="10dp"/>
         </LinearLayout>
-
-
-
     </android.support.v7.widget.CardView>
 
     <android.support.design.widget.FloatingActionButton
@@ -194,14 +188,10 @@
         android:src="@drawable/ic_star"
         android:elevation="10dp"
         app:backgroundTint="@color/colorWhite"
-        android:layout_marginTop="230dp"
-        android:layout_marginEnd="-5dp"
-        android:layout_marginBottom="184dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView3"
-        app:layout_constraintEnd_toEndOf="@+id/cardView2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_neighbour_detail_cardview_image"
+        android:translationY="-24dp"
+        android:translationX="-10dp"/>
 </android.support.constraint.ConstraintLayout>
 
 

@@ -20,11 +20,9 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
         switch (position){
             case 0 : return NeighbourFragment.newInstance();
-            case 1 : return FavoritesFragment.newInstance();
+            case 1 : return FavoriteFragment.newInstance();
                 default: return null;
         }
-
-
     }
 
     /**

@@ -1,25 +1,24 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.mbms.StreamingServiceInfo;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.model.Neighbour;
-
-import java.util.List;
+import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
+import com.openclassrooms.entrevoisins.utils.SharedPreferencesUtils;
 
 public class NeighbourDetailActivity extends AppCompatActivity {
 
@@ -44,8 +43,11 @@ public class NeighbourDetailActivity extends AppCompatActivity {
     private String about;
     private TextView aboutNeighbour;
 
+    private String idNeighbour;
 
     private FloatingActionButton favorite;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,37 +92,40 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         aboutNeighbour = findViewById(R.id.activity_neighbour_detail_about);
         aboutNeighbour.setText(about);
 
+        idNeighbour = getIntent().getStringExtra("id");
 
         favorite = findViewById(R.id.activity_neighbour_detail_favorites);
 
-
+        if (SharedPreferencesUtils.getBooleanPreference(this, idNeighbour)) {
+            favorite.setColorFilter(ContextCompat.getColor(this, R.color.colorYellow));
+            favorite.setSelected(true);
+        } else {
+            favorite.setColorFilter(ContextCompat.getColor(this, R.color.colorBlack));
+            favorite.setSelected(false);
+        }
 
         favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int colorYellow = Color.argb(255, 255,255,0);
-                //int colorBlack = Color.argb(0, 0,0,0);
 
-                favorite.setColorFilter(colorYellow);
+                if (!favorite.isSelected()) { // si l'étoile pas séléctionné
+                    favorite.setColorFilter(ContextCompat.getColor(v.getContext(), R.color.colorYellow)); // colorie jaune
+                    favorite.setSelected(true); // et passe a vrai
+                    // donc on ajout la clef des preferences
+                    SharedPreferencesUtils.setBooleanPreference(v.getContext(), idNeighbour, true);
+                } else {
+                    favorite.setColorFilter(ContextCompat.getColor(v.getContext(), R.color.colorBlack));
+                    favorite.setSelected(false);
+                    // supprimer la clef des preferences
+                    SharedPreferencesUtils.deletePreference(v.getContext(), idNeighbour);
 
-                Toast.makeText(v.getContext(), name, Toast.LENGTH_SHORT).show();
 
 
-
+                }
             }
         });
 
-
-
-
-
-
-
-
-
-
     }
-
 
 
 }
