@@ -7,10 +7,13 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.RecyclerView;
 import android.telephony.mbms.StreamingServiceInfo;
 import android.widget.ListView;
 import android.widget.TextView;
 
+
+import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourDetailActivity;
 import com.openclassrooms.entrevoisins.utils.SharedPreferencesUtils;
@@ -18,6 +21,9 @@ import com.openclassrooms.entrevoisins.utils.SharedPreferencesUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Dummy mock for the Api
@@ -27,10 +33,9 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     private List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
     private List<Neighbour> favoriteNeighbour = new ArrayList<>();
 
-    private Integer idNeighbour;
-    private Neighbour neighbour;
-    private String id;
-
+    private SharedPreferences preferences;
+    private boolean spF;
+    private String key;
 
     /**
      * {@inheritDoc}
@@ -41,20 +46,14 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
     @Override
     public List<Neighbour> getFavoriteNeighbours() {
-        // TODO : return favorite Neighbours
-        // On cree une liste vide de neighbours
-        //On itere sur tous les utillisateurs avec un for :
-        //Pour chaque utilisateur si l’ID de l’utilisateur existe dans les sharedpreferences
-        //-> on l’ajoute dans la liste initialement vide
-        //Si il n’existe pas
-        //-> on fait rien
-        idNeighbour = neighbour.getId();
-        for (int i=0; i<neighbours.size(); i++) {
-            if (neighbours.contains(idNeighbour)) {
-                favoriteNeighbour.add(neighbour);
+        // TODO : return favorite Neighbour
+
+        for(Neighbour n : neighbours){
+            spF = preferences.getBoolean(key,true); // SP et Key sont à null
+            if(neighbours.contains()){  // idSP
+                favoriteNeighbour.add(n);
             }
         }
-
         return favoriteNeighbour;
     }
 
