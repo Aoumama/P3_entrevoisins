@@ -15,8 +15,6 @@ import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
-import org.greenrobot.eventbus.EventBus;
-
 import java.util.List;
 
 public class FavoriteFragment extends Fragment {
@@ -25,6 +23,7 @@ public class FavoriteFragment extends Fragment {
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
+
 
     /**
      * Create and return a new instance
@@ -50,16 +49,21 @@ public class FavoriteFragment extends Fragment {
         Context context = view.getContext();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-        initList();
         return view;
     }
 
     /**
      * Init the List of neighbours
+     * @param context
      */
-    private void initList() {
-        mNeighbours = mApiService.getFavoriteNeighbours();
+    private void initList(Context context) {
+        mNeighbours = mApiService.getFavoriteNeighbours(context);
         mRecyclerView.setAdapter(new MyFavoriteRecyclerViewAdapter(mNeighbours));
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        initList(getContext());
+    }
 }

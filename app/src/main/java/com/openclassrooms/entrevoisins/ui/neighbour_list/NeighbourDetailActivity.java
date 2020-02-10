@@ -1,23 +1,15 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.telephony.mbms.StreamingServiceInfo;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
 import com.openclassrooms.entrevoisins.utils.SharedPreferencesUtils;
 
 public class NeighbourDetailActivity extends AppCompatActivity {
@@ -104,6 +96,8 @@ public class NeighbourDetailActivity extends AppCompatActivity {
             favorite.setSelected(false);
         }
 
+
+
         favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,14 +107,13 @@ public class NeighbourDetailActivity extends AppCompatActivity {
                     favorite.setSelected(true); // et passe a vrai
                     // donc on ajout la clef des preferences
                     SharedPreferencesUtils.setBooleanPreference(v.getContext(), idNeighbour, true);
+                    
+
                 } else {
                     favorite.setColorFilter(ContextCompat.getColor(v.getContext(), R.color.colorBlack));
                     favorite.setSelected(false);
                     // supprimer la clef des preferences
                     SharedPreferencesUtils.deletePreference(v.getContext(), idNeighbour);
-
-
-
                 }
             }
         });

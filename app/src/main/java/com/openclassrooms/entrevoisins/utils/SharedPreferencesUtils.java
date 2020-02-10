@@ -19,6 +19,7 @@ public class SharedPreferencesUtils {
         return value;
     }
 
+
     // donné valeur à la clé
     public static void setBooleanPreference(Context context, String key, boolean value) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);

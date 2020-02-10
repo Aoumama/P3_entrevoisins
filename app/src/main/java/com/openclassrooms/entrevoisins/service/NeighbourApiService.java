@@ -1,5 +1,7 @@
 package com.openclassrooms.entrevoisins.service;
 
+import android.content.Context;
+
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
 import java.util.List;
@@ -21,7 +23,7 @@ public interface NeighbourApiService {
      * Get all my Favorite
      * @return {@link List}
      */
-    List<Neighbour> getFavoriteNeighbours();
+    List<Neighbour> getFavoriteNeighbours(Context contexta);
 
     /**
      * Deletes a neighbour

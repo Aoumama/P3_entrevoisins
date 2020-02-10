@@ -1,26 +1,16 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -31,7 +21,6 @@ public class MyFavoriteRecyclerViewAdapter extends RecyclerView.Adapter<MyFavori
 
     private final List<Neighbour> mNeighbours;
 
-
     public MyFavoriteRecyclerViewAdapter(List<Neighbour> items) {
         mNeighbours = items;
     }
@@ -40,9 +29,7 @@ public class MyFavoriteRecyclerViewAdapter extends RecyclerView.Adapter<MyFavori
     public MyFavoriteRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_favorite_item, parent, false);
-
         return new MyFavoriteRecyclerViewAdapter.ViewHolder(view);
-
     }
 
     @Override
@@ -53,6 +40,7 @@ public class MyFavoriteRecyclerViewAdapter extends RecyclerView.Adapter<MyFavori
                 .load(neighbour.getAvatarUrl())
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mNeighbourAvatar);
+
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
