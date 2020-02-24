@@ -3,14 +3,12 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -58,12 +56,10 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             }
         });
 
-         holder.itemView.setOnClickListener(new View.OnClickListener() { // Clique item du voisin
+         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(v.getContext(), neighbour.getName(), Toast.LENGTH_SHORT).show();
                 Intent intentDetail = new Intent(v.getContext(), NeighbourDetailActivity.class);
-                // émetteur, classe de l'activité
                 intentDetail.putExtra("id", neighbour.getId().toString());
                 intentDetail.putExtra("name", neighbour.getName());
                 intentDetail.putExtra("avatarUrl", neighbour.getAvatarUrl());
@@ -71,7 +67,6 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 intentDetail.putExtra("number", neighbour.getNumber());
                 intentDetail.putExtra("facebook", neighbour.getFacebook());
                 intentDetail.putExtra("about", neighbour.getAbout());
-
                 ContextCompat.startActivity(v.getContext(), intentDetail, null);
             }
         });

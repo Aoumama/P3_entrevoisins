@@ -5,34 +5,47 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
-import java.security.Key;
-
 public class SharedPreferencesUtils {
 
-    // (vérifie) retourne la clé si existe
-    public static boolean getBooleanPreference(Context context, String key) {
+
+    /** Instance unique non préinitialisée */
+    private static SharedPreferences sharedPreferences = null;
+    private static SharedPreferencesUtils INSTANCE = null;
+
+    /** Point d'accès pour l'instance unique du SharedPreferences */
+    public static SharedPreferencesUtils getInstance(Context context) {
+        if (INSTANCE == null) {
+            sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+            INSTANCE = new SharedPreferencesUtils();
+        }
+        return INSTANCE;
+    }
+
+
+    // check and return key if exists
+    public boolean getBooleanPreference(String key) {
         boolean value = false;
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        if (preferences != null) {
-            value = preferences.getBoolean(key, false);
+        //SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        if (sharedPreferences != null) {
+            value = sharedPreferences.getBoolean(key, false);
         }
         return value;
     }
 
-
-    // donné valeur à la clé
-    public static void setBooleanPreference(Context context, String key, boolean value) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        if (preferences != null && !TextUtils.isEmpty(key)) {
-            SharedPreferences.Editor editor = preferences.edit();
+    // given value to the key
+    public void setBooleanPreference(String key, boolean value) {
+        //SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        if (sharedPreferences != null && !TextUtils.isEmpty(key)) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean(key, value);
             editor.apply();
         }
     }
 
-    public static void deletePreference(Context context, String key){
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = preferences.edit();
+    // delete preferences
+    public void deletePreference(String key) {
+        //SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.remove(key);
         editor.apply();
     }

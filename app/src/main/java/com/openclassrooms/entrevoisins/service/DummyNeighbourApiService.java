@@ -31,7 +31,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         favoriteNeighbour.clear();
         for (Neighbour n : neighbours) {
             key = n.getId().toString();
-            booleanPreference = SharedPreferencesUtils.getBooleanPreference(context, key);
+            booleanPreference = SharedPreferencesUtils.getInstance(context).getBooleanPreference(key);
             if (booleanPreference) {
                 favoriteNeighbour.add(n);
             }

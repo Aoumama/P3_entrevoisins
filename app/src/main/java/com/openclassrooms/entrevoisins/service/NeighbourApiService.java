@@ -23,7 +23,7 @@ public interface NeighbourApiService {
      * Get all my Favorite
      * @return {@link List}
      */
-    List<Neighbour> getFavoriteNeighbours(Context contexta);
+    List<Neighbour> getFavoriteNeighbours(Context context);
 
     /**
      * Deletes a neighbour

@@ -40,18 +40,6 @@ public class MyFavoriteRecyclerViewAdapter extends RecyclerView.Adapter<MyFavori
                 .load(neighbour.getAvatarUrl())
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mNeighbourAvatar);
-
-
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-
-
     }
 
     @Override

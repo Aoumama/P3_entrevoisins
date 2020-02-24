@@ -17,6 +17,11 @@ android {
         }
     }
 
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -50,5 +55,14 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.2'
 
     androidTestImplementation 'com.android.support.test.espresso:espresso-intents:3.0.2'
+
+
+    testImplementation 'org.robolectric:robolectric:4.3'
+    testImplementation 'androidx.test:core:1.2.0'
+
+
+
+
+
 
 }

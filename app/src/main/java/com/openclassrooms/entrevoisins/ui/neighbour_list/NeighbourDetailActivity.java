@@ -39,14 +39,38 @@ public class NeighbourDetailActivity extends AppCompatActivity {
 
     private FloatingActionButton favorite;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_neighbour_detail);
-
         returnListNeighbour = findViewById(R.id.activity_neighbour_detail_return);
+
+        name = getIntent().getStringExtra("name");
+        idNeighbour = getIntent().getStringExtra("id");
+        avatarUrl = getIntent().getStringExtra("avatarUrl");
+        profilPicture = findViewById(R.id.activity_neighbour_detail_profil);
+        Glide.with(this)
+                .load(avatarUrl)
+                .into(profilPicture);
+
+        nameNeighbourImage = findViewById(R.id.activity_neighbour_detail_name_image);
+        nameNeighbourImage.setText(name);
+        nameNeighbour = findViewById(R.id.activity_neighbour_detail_name);
+        nameNeighbour.setText(name);
+        favorite = findViewById(R.id.activity_neighbour_detail_favorites);
+
+        address = getIntent().getStringExtra("address");
+        addressNeighbour = findViewById(R.id.activity_neighbour_detail_address);
+        addressNeighbour.setText(address);
+        number = getIntent().getStringExtra("number");
+        numberNeighbour = findViewById(R.id.activity_neighbour_detail_number);
+        numberNeighbour.setText(number);
+        facebook = getIntent().getStringExtra("facebook");
+        facebookNeighbour = findViewById(R.id.activity_neighbour_detail_facebook);
+        facebookNeighbour.setText(facebook);
+        about = getIntent().getStringExtra("about");
+        aboutNeighbour = findViewById(R.id.activity_neighbour_detail_about);
+        aboutNeighbour.setText(about);
 
         returnListNeighbour.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,40 +79,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
             }
         });
 
-        name = getIntent().getStringExtra("name");
-
-        nameNeighbourImage = findViewById(R.id.activity_neighbour_detail_name_image);
-        nameNeighbourImage.setText(name);
-        nameNeighbour = findViewById(R.id.activity_neighbour_detail_name);
-        nameNeighbour.setText(name);
-
-        avatarUrl = getIntent().getStringExtra("avatarUrl");
-        profilPicture = findViewById(R.id.activity_neighbour_detail_profil);
-        Glide.with(this)
-                .load(avatarUrl)
-                .into(profilPicture);
-
-        address = getIntent().getStringExtra("address");
-        addressNeighbour = findViewById(R.id.activity_neighbour_detail_address);
-        addressNeighbour.setText(address);
-
-        number = getIntent().getStringExtra("number");
-        numberNeighbour = findViewById(R.id.activity_neighbour_detail_number);
-        numberNeighbour.setText(number);
-
-        facebook = getIntent().getStringExtra("facebook");
-        facebookNeighbour = findViewById(R.id.activity_neighbour_detail_facebook);
-        facebookNeighbour.setText(facebook);
-
-        about = getIntent().getStringExtra("about");
-        aboutNeighbour = findViewById(R.id.activity_neighbour_detail_about);
-        aboutNeighbour.setText(about);
-
-        idNeighbour = getIntent().getStringExtra("id");
-
-        favorite = findViewById(R.id.activity_neighbour_detail_favorites);
-
-        if (SharedPreferencesUtils.getBooleanPreference(this, idNeighbour)) {
+        if (SharedPreferencesUtils.getInstance(this).getBooleanPreference(idNeighbour)) {
             favorite.setColorFilter(ContextCompat.getColor(this, R.color.colorYellow));
             favorite.setSelected(true);
         } else {
@@ -96,24 +87,20 @@ public class NeighbourDetailActivity extends AppCompatActivity {
             favorite.setSelected(false);
         }
 
-
-
         favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if (!favorite.isSelected()) { // si l'étoile pas séléctionné
-                    favorite.setColorFilter(ContextCompat.getColor(v.getContext(), R.color.colorYellow)); // colorie jaune
+                    favorite.setColorFilter(ContextCompat.getColor(v.getContext(), R.color.colorYellow));
                     favorite.setSelected(true); // et passe a vrai
                     // donc on ajout la clef des preferences
-                    SharedPreferencesUtils.setBooleanPreference(v.getContext(), idNeighbour, true);
-                    
-
+                    SharedPreferencesUtils.getInstance(v.getContext()).setBooleanPreference(idNeighbour, true);
                 } else {
                     favorite.setColorFilter(ContextCompat.getColor(v.getContext(), R.color.colorBlack));
                     favorite.setSelected(false);
                     // supprimer la clef des preferences
-                    SharedPreferencesUtils.deletePreference(v.getContext(), idNeighbour);
+                    SharedPreferencesUtils.getInstance(v.getContext()).deletePreference(idNeighbour);
                 }
             }
         });
