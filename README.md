@@ -5,7 +5,7 @@ Ce dépôt contient une mini-application pour le P3 du parcours **Grande École 
 **Bienvenue dans l’application Entrevoisins !**
 Cette application permet aux voisins d’échanger !
 
-##Si vous souhaitez exécuter et compiler l’application voici comment faire : 
+## Si vous souhaitez exécuter et compiler l’application voici comment faire : 
 
 1 – Télécharger le dossier Zip et enregistrer le sur votre dossier StudioProjects
 
@@ -19,7 +19,7 @@ Cette application permet aux voisins d’échanger !
 
 Voilà l’installation dans votre Android Studio est terminé
 
-##Maintenant nous allons voir comment le lancer l’application via l’emulator 
+## Maintenant nous allons voir comment le lancer l’application via l’emulator 
 
 1 - Allez dans la barre d’outil : Tools
 
